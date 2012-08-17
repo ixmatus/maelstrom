@@ -1,12 +1,12 @@
 REBAR := /usr/local/bin/rebar
 
-.PHONY: all deps doc test clean release
+.PHONY: all deps doc test clean release rel
 
 all: deps
 	$(REBAR) compile
 
 rel:
-	cd rel && $(REBAR) generate
+	$(REBAR) generate
 
 deps:
 	$(REBAR) get-deps

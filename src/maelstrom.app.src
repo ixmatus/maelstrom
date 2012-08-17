@@ -3,9 +3,14 @@
   {description, "Maelstrom Daemon"},
   {vsn, "0.1.0"},
   {registered, []},
-  {applications, [
-                  maelstrom
-                 ]},
+  {applications, []},
   {mod, { maelstrom_app, []}},
-  {env, []}
+  {env, [
+           {pools, [
+            {pool1, [
+                {size, 2},
+                {max_overflow, 0}
+            ], []}
+         ]}
+  ]}
  ]}.

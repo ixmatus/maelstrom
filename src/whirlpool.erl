@@ -7,7 +7,7 @@
 %%%-------------------------------------------------------------------------
 -module(whirlpool).
 
--export([compute/1, async_compute/1]).
+-export([compute/1, async_compute/2]).
 
 %%----------------------------------------------------------------------
 %% @doc  Given a tuple of {Module, Fun, Args} | {Fun, Args} this function
@@ -33,8 +33,8 @@ compute(Payload) ->
 %% @spec async_compute(Payload::tuple(), Receiver::pid()) -> any()
 %% @end
 %%----------------------------------------------------------------------
--spec async_compute(Payload::tuple()) -> any().
-async_compute(Payload) ->
+-spec async_compute(Payload::tuple(), Receiver::pid()) -> any().
+async_compute(Payload, Receiver) ->
     poolboy:transaction(pool1, fun(Worker) ->
-        gen_server:cast(Worker, {compute, Payload})
+        gen_server:cast(Worker, {compute, Receiver, Payload})
     end).
