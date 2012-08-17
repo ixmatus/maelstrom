@@ -24,7 +24,14 @@ handle_call({compute, {F, A}}, _From, State) ->
 handle_call({compute, {M, F, A}}, _From, State) ->
     {reply, erlang:apply(M, F, A), State}.
 
-handle_cast(_Msg, State) ->
+handle_cast({compute, Reply, {F, A}}, State) ->
+    Result = erlang:apply(F, A),
+    Reply ! {done, Result},
+    {noreply, State};
+
+handle_cast({compute, Reply, {M, F, A}}, State) ->
+    Result = erlang:apply(M, F, A),
+    Reply ! {done, Result},
     {noreply, State}.
 
 handle_info(_Info, State) ->
