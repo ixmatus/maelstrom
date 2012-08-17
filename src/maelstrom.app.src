@@ -1,0 +1,11 @@
+{application, maelstrom,
+ [
+  {description, "Maelstrom Daemon"},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {applications, [
+                  maelstrom
+                 ]},
+  {mod, { maelstrom_app, []}},
+  {env, []}
+ ]}.
