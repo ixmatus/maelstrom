@@ -1,11 +1,12 @@
 %%%-------------------------------------------------------------------------
 %%% @author    Parnell Springmeyer <ixmatus@gmail.com>
 %%% @copyright 2012 Parnell Springmeyer
-%%% @doc       Interface for application:start/stop/takeover/&c...
+%%% @doc       Application interface for application:start/stop/takeover/&c...
+%%%            in the node-specific worker pool OTP application (the workhorse).
 %%% @end
 %%%-------------------------------------------------------------------------
 
--module(maelstrom_app).
+-module(whirlpool_app).
 -behaviour(application).
 
 %% Application callbacks
@@ -16,7 +17,7 @@
 %% ===================================================================
 
 start(_StartType, _StartArgs) ->
-    case maelstrom_sup:start_link() of
+    case whirlpool_sup:start_link() of
         {ok, Pid} ->
             {ok, Pid};
         Other ->
