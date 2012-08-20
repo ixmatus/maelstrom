@@ -28,7 +28,7 @@ Topologies (topos)
 
 Topologies are configured using a similar approach to the OTP supervisor child specs. You, most importantly, specify the graph of input streams, Vertexes, and output streams; you can also configure the _n_-value for the topo, whether or not units of computation for the topo should be acked (disabling it decreases latency but you also lose guarantees). A unit of computation is broken down into a tuple pair.
 
-When writing the topo spec you can either provide a ModFunArg for the Vertex (if the code has been deployed and compiled on all the nodes less startup time) or a FileMod | FunArg to be packaged and distributed across the cluster (slower startup time).
+When writing the topo spec you can either provide a ModFunArg for the Vertex (if the code has been deployed and compiled on all the nodes [less startup time]) or a FileMod | FunArg to be packaged and distributed across the cluster (slower startup time).
 
 
 * Input streams can be anything that provides a source of data. It could be a push-notification system, the Twitter firehose, an RSS feed, a database, &c...
