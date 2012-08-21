@@ -1,8 +1,10 @@
 REBAR := /usr/local/bin/rebar
 
-.PHONY: all deps doc test clean release rel
+.PHONY: all deps doc test clean release rel build_plt check_plt dialyzer
 
-all: deps
+all: deps compile
+
+compile:
 	$(REBAR) compile
 
 rel:
@@ -21,7 +23,7 @@ clean:
 	$(REBAR) clean
 
 APPS = kernel stdlib sasl erts ssl tools os_mon runtime_tools crypto inets \
-	xmerl webtool snmp public_key mnesia eunit syntax_tools compiler
+	xmerl webtool snmp public_key mnesia syntax_tools compiler
 COMBO_PLT = $(HOME)/.maelstrom_combo_dialyzer_plt
 
 check_plt: compile
