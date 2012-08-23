@@ -25,6 +25,8 @@ The cluster gossips about its state, every node informs the other nodes about it
 
 Clusters at the time of configuration can either be setup more like a priority queue or as a load-balanced worker pool.
 
+At this time, I'm also considering using something like [TeleHash](http://telehash.org/) (implemented in Erlang) as the p2p layer, rather than rolling my own (really hard).
+
 Topologies (topos)
 ------------------
 
