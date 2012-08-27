@@ -10,14 +10,10 @@ And yes, it is in development.
 Design Rationale
 ================
 
-[Erlang/OTP](http://www.erlang.org/) are well-suited for distributed, fault-tolerant, and highly-concurrent computing. Distributed workflows and primitives (built into the Erlang VM), hot-code loading, concurrency primitives, supervision trees, and many other features make Erlang/OTP a great fundamental building block because these features are part of the language and tool chain, don't need to be bolted on, and the stack has been around for over 20 years (__industry proven__).
-
-The Maelstrom architecture, to achieve true high-availability and parallel _and concurrent_ computing, is borrowing from both the masterless model of Amazon's Dynamo (as seen in [Riak](http://wiki.basho.com/Riak.html) and [Cassandra](http://cassandra.apache.org/)) and the seed/peer model pioneered by the BitTorrent protocol.
+I'm switching over to Haskell for experimental purposes - the design uses a sovereign approach (every node is sovereign, no node is special).
 
 Architecture
 ============
-
-Affirmation of Erlang's suitability and the use of a Directed Acyclic Graph for configuring the topology can be found in this paper here: [Esc: Towards an Elastic Stream Computing Platform for the Cloud](https://docs.google.com/a/whooshtraffic.com/file/d/1Dm7RDrUcRjdzcHtxliy0FLl3wFOHDatuNQGNJmxDBokELiZVjWAATME8FKNH/edit).
 
 Each node is capable of receiving a _topo_, these describe a graph topology of input streams, computing Vertexes (which can output streams that other vertexes consume as well), and output streams. At the time of submission, in the topo spec, an _n_-value is specified to inform the receiving node of how many peer nodes in the cluster should "seed" the topo (this is how the cluster can recover a submitted topo of a failed node that had ownership). The node that owns the topo is responsible for unit acking (if they are specified in the topo spec). The topo state is always replicated between the seeds and the owner to maintain consistency in the event of ownership hand-off.
 
