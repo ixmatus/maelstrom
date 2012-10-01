@@ -1,11 +1,13 @@
 Maelstrom
 =========
 
-A distributed, fault-tolerant, and soft real-time computation platform. Instead of parallel computing in batches (Map/Reduce) Maelstrom handles its units of computation in streams, in parallel, and distributed in a cluster.
+A distributed, fault-tolerant, and soft real-time computation platform. Instead of parallel computing in batches (Map/Reduce) Maelstrom handles its units of computation in streams, in parallel across a cluster, and concurrently on each node.
 
 Maelstrom is master-less and therefore has no single point of failure.
 
-And yes, it is in development.
+And yes, it is in development, a working prototype isn't even finished.
+
+The goal here is to provide a generalized framework for parallel, concurrent, and distributed computational work-loads that are non-trivial.
 
 Design Rationale
 ================
@@ -26,10 +28,9 @@ Topologies (topos)
 
 Topologies in Maelstrom *are* directed acyclic graphs; topology is just easier to say.
 
-Topologies are configured using a similar approach to the OTP supervisor child specs. You, most importantly, specify the graph of input streams, Vertexes, and output streams; you can also configure the _n_-value for the topo, whether or not units of computation for the topo should be acked (disabling it decreases latency but you also lose guarantees). A unit of computation is broken down into a tuple pair.
+Topologies are to be configured using a DSL. I have yet to design this DSL but it makes the most sense.
 
-When writing the topo spec you can either provide a ModFunArg for the Vertex (if the code has been deployed and compiled on all the nodes [less startup time]) or a FileMod | FunArg to be packaged and distributed across the cluster (slower startup time).
-
+The DSL provides a format for specifying the graph of input streams, Vertexes, and output streams; you can also configure the _n_-value for the topo, whether or not units of computation for the topo should be acked (disabling it decreases latency but you also lose guarantees). A unit of computation is broken down into a tuple pair.
 
 * Input streams can be anything that provides a source of data. It could be a push-notification system, the Twitter firehose, an RSS feed, a database, &c...
 * A Vertex is a concrete unit of computation, it receives a tuple from an input stream (vertexes are configured a bit like "type classes", this matches vertexes with input streams) and outputs as a stream or to a database (or whatever the user chooses).
