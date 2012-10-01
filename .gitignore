@@ -2,3 +2,4 @@ deps/*
 rel/maelstrom/*
 log/*
 ebin/*
+.hsenv_maelstrom
