@@ -1,6 +1,8 @@
 Maelstrom
 =========
 
+[![Build Status](https://travis-ci.org/ixmatus/maelstrom.png)](https://travis-ci.org/ixmatus/maelstrom)
+
 A distributed, fault-tolerant, and soft real-time computation platform. Instead of parallel computing in batches (Map/Reduce) Maelstrom handles its units of computation in streams, in parallel across a cluster, and concurrently on each node.
 
 Maelstrom is master-less and therefore has no single point of failure.
