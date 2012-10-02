@@ -1,1 +1,2 @@
-{- Entry Program For Maelstrom -}
+main :: IO ()
+main = do putStrLn "Hello World!"
