@@ -10,4 +10,3 @@ configure:
 
 clean:
 	cabal clean
-	rm -f tabula-recta.bytestr
