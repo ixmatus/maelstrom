@@ -12,8 +12,11 @@ license-file:        LICENSE
 author:              Parnell Springmeyer
 maintainer:          parnell@ixmat.us
 copyright:           (c) 2013 Parnell Springmeyer
+Bug-reports:         https://github.com/ixmatus/maelstrom/issues
+Package-url:         http://hackage.haskell.org/package/maelstrom
 category:            Data
 build-type:          Simple
+Tested-with:         GHC == 7.6.3
 cabal-version:       >=1.14
 
 extra-source-files:
