@@ -1,5 +1,7 @@
-deps/*
-rel/maelstrom/*
-log/*
-ebin/*
-.hsenv_maelstrom
+dist
+cabal-dev
+*.o
+*.hi
+*.chi
+*.chs.h
+.virthualenv
