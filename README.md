@@ -3,8 +3,7 @@
 Maelstrom is a distributed, fault-tolerant, and soft real-time computation platform. As opposed to Map/Reduce, Maelstrom handles
 its units of computation in streams, in parallel across a cluster, and concurrently on each node.
 
-The goal is to provide a generalized framework for parallel, concurrent, and distributed computational work-loads that
-are non-trivial.
+The goal is to provide a generalized framework for distributed computational work-loads that are non-trivial.
 
 ## Design
 
